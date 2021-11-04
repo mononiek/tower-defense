@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2825562960135069679}
   - component: {fileID: 2217067595968554420}
   - component: {fileID: 8127433354003791106}
+  - component: {fileID: 6144534636314520202}
   m_Layer: 0
   m_Name: Bullet_Pawn
   m_TagString: Untagged
@@ -94,3 +95,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &6144534636314520202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6370700745614220184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b26a41051da7d154195dfbfde81a9cbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
