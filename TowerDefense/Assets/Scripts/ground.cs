@@ -5,9 +5,11 @@ using UnityEngine;
 public class ground : MonoBehaviour
 {
     public Color hoverColor;
+    public Color redColor;
     public Vector3 positionOffset;
 
-    private GameObject turret;
+    [Header("Optional")]
+    public GameObject turret;
 
     private Renderer rend;
     private Color startColor;
@@ -17,24 +19,41 @@ public class ground : MonoBehaviour
     {
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
-        buildManager = GameObject.Find("GameMaster").GetComponent<BuildManager>();
+        buildManager = BuildManager.instance;
+    }
+
+    public Vector3 GetBuildPosition ()
+    {
+        return transform.position + positionOffset;
     }
 
     void OnMouseDown ()
     {
+        if (!buildManager.CanBuild)
+            return;
+
         if (turret != null)
         {
             Debug.Log("Can't build here!");
             return;
         }
 
-        GameObject turretToBuild = buildManager.GetTurretToBuild();
-        turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
+        buildManager.BuildTurretOn(this);
     }
     
     void OnMouseEnter ()
     {
-        rend.material.color = hoverColor;
+        if (!buildManager.CanBuild)
+            return;
+
+        if (buildManager.HasMoney)
+        {
+            rend.material.color = hoverColor;
+        }
+        else
+        {
+            rend.material.color = redColor;
+        }
     }
 
     void OnMouseExit ()
