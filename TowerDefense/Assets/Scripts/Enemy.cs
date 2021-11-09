@@ -6,12 +6,34 @@ public class Enemy : MonoBehaviour
 {
     public float speed = 10f;
 
+    private int Health;
+    public int starthealth = 50;
+
+    public int value = 50;
+
     private Transform target;
     private int wavepointIndex = 0;
 
     void Start()
     {
         target = Waypoints.points[0];
+        Health = starthealth;
+    }
+
+    public void TakeDamage (int amount)
+    {
+        Health -= amount;
+
+        if (Health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die ()
+    {
+        PlayerStats.Money += value;
+        Destroy(gameObject);
     }
 
     void Update()
@@ -29,11 +51,17 @@ public class Enemy : MonoBehaviour
     {
         if (wavepointIndex >= Waypoints.points.Length - 1)
         {
-            Destroy(gameObject);
+            EndPad();
             return;
         }
         
         wavepointIndex++;
         target = Waypoints.points[wavepointIndex];
+    }
+
+    void EndPad ()
+    {
+        PlayerStats.Lives--;
+        Destroy(gameObject);
     }
 }

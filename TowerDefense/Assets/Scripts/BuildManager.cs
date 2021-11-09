@@ -37,8 +37,6 @@ public class BuildManager : MonoBehaviour
 
         GameObject turret = (GameObject)Instantiate(turretToBuild.prefab, Ground.GetBuildPosition(), Quaternion.identity);
         Ground.turret = turret;
-
-        Debug.Log("Turret build! Money left: " + PlayerStats.Money);
     }
 
     public void SelectTurretToBuild (TurretBlueprint turret)

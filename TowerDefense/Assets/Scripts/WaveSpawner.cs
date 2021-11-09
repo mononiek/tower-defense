@@ -29,7 +29,6 @@ public class WaveSpawner : MonoBehaviour
         waveCountdownText.text = Mathf.Round(countdown).ToString();
     }
 
-    //Gotta be changed probably
     IEnumerator SpawnWave ()
     {
         waveIndex++;
