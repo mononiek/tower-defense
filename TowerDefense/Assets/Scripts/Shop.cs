@@ -6,6 +6,7 @@ public class Shop : MonoBehaviour
 {
     public TurretBlueprint PawnTurret;
     public TurretBlueprint KnightTurret;
+    public TurretBlueprint RookTurret;
     
     BuildManager buildManager;
 
@@ -24,5 +25,11 @@ public class Shop : MonoBehaviour
     {
         Debug.Log("Knight Turret Selected");
         buildManager.SelectTurretToBuild(KnightTurret);
+    }
+
+    public void SelectRookTurret()
+    {
+        Debug.Log("Rook Turret Selected");
+        buildManager.SelectTurretToBuild(RookTurret);
     }
 }

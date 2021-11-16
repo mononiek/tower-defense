@@ -19,6 +19,7 @@ public class BuildManager : MonoBehaviour
 
     public GameObject PawnPrefab;
     public GameObject KnightPrefab;
+    public GameObject RookPrefab;
 
     private TurretBlueprint turretToBuild;
 
